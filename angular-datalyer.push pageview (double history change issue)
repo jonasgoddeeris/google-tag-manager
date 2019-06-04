@@ -1,0 +1,12 @@
+this.router.events
+    .pipe(
+        filter((ev: Event): ev is NavigationEnd => ev instanceof NavigationEnd)
+    )
+    .subscribe(ev => {
+        window['dataLayer'] = window['dataLayer'] || [];
+        window['dataLayer'].push({
+            'event': 'Pageview',
+            'pagePath': this.router.url,
+            'pageTitle': `${this.router.url.split('/')[1]} - ${this.router.url.split('/')[2]}`
+        });
+    });
