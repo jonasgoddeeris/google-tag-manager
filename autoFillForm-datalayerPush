@@ -1,0 +1,88 @@
+
+  
+var familyName = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.family_name;
+var firstName = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.given_name;
+var email = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.email;
+var mobileNumber = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.mobileNumber;
+
+
+
+if (email) {
+	document.getElementById('email').value=email;
+};
+if (firstName) {
+	document.getElementById('voornaam').value=firstName;;
+};
+if (familyName) {
+	document.getElementById('naam').value=familyName;
+};
+if (mobileNumber) {
+	document.getElementById('telefoon').value=mobileNumber;
+};
+
+
+
+
+var autoSucces = (email) ? "Available":"Empty";
+
+
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+	'event' : 'GA Tracking', 
+	'eventCategory' : 'Attest staking',
+	'eventAction' : 'Auto fill-in',
+	'eventLabel': autoSucces,
+	'eventValue': 0
+});
+
+
+
+
+
+
+/*
+<script>
+  
+var familyName = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.family_name;
+var firstName = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.given_name;
+var email = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.email;
+var mobileNumber = JSON.parse(localStorage.getItem('site-delijn')).identity.profile.data.mobileNumber;
+var autoSucces;
+
+
+document.getElementById('email').value=email;
+document.getElementById('voornaam').value=firstName;
+document.getElementById('naam').value=familyName;
+document.getElementById('telefoon').value=mobileNumber;
+
+
+function myFunction() {
+  if (email !== null) {
+    autoSucces = "True";
+  } else {
+    autoSucces = "False";
+  }
+}
+
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+	'event' : 'GA Tracking', 
+	'eventCategory' : 'Attest staking',
+	'eventAction' : 'Auto fill-in',
+	'eventLabel': 'autoSucces',
+	'eventValue': 0
+});
+
+  
+</script>
+/*
+
+
+
+
+
+
+
+
+
+
